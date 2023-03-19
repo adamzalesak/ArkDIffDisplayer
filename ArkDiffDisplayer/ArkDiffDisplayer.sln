@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArkDiffDisplayer", "ArkDiffDisplayer\ArkDiffDisplayer.csproj", "{7897A83E-EBE0-430E-A6B2-3DD58C8FC752}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArkDiffDisplayer.Tests", "ArkDiffDisplayer.Tests\ArkDiffDisplayer.Tests.csproj", "{35A26A3B-70B8-4D61-AD03-94A546ED5501}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7897A83E-EBE0-430E-A6B2-3DD58C8FC752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7897A83E-EBE0-430E-A6B2-3DD58C8FC752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7897A83E-EBE0-430E-A6B2-3DD58C8FC752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7897A83E-EBE0-430E-A6B2-3DD58C8FC752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A26A3B-70B8-4D61-AD03-94A546ED5501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A26A3B-70B8-4D61-AD03-94A546ED5501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A26A3B-70B8-4D61-AD03-94A546ED5501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A26A3B-70B8-4D61-AD03-94A546ED5501}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC89D5F4-4B20-4B0B-9ACD-FCADDDA581B1}
+	EndGlobalSection
+EndGlobal
