@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ArkDiffDisplayer/.vs
+/ArkDiffDisplayer/ArkDiffDisplayer.Tests
+/ArkDiffDisplayer/ArkDiffDisplayer/bin/Debug/net6.0
+/ArkDiffDisplayer/ArkDiffDisplayer/obj/Debug/net6.0
+/ArkDiffDisplayer/ArkDiffDisplayer/obj/project.nuget.cache
+/ArkDiffDisplayer/ArkDiffDisplayer/obj/project.assets.json
+/ArkDiffDisplayer/ArkDiffDisplayer/obj/ArkDiffDisplayer.csproj.nuget.g.targets
+/ArkDiffDisplayer/ArkDiffDisplayer/obj/ArkDiffDisplayer.csproj.nuget.g.props
+/ArkDiffDisplayer/ArkDiffDisplayer/obj/ArkDiffDisplayer.csproj.nuget.dgspec.json
