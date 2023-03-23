@@ -31,10 +31,10 @@ namespace ArkDiffDisplayer.FileManagement
                 File.WriteAllText(fileLocationAndName, content);
                 return true;
             }
-            catch (Exception ecx)
+            catch (Exception exc)
             {
                 if (verbose)
-                    Console.WriteLine(ecx.Message);
+                    Console.WriteLine(exc.Message);
 
                 return false;
             }
@@ -94,7 +94,7 @@ namespace ArkDiffDisplayer.FileManagement
             int csvIndex = holdingsFileName.LastIndexOf(".csv");
 
             if (csvIndex != -1)
-                holdingsFileName= holdingsFileName.Remove(csvIndex);
+                holdingsFileName = holdingsFileName.Remove(csvIndex);
 
             return DateStringToDateTime(holdingsFileName, out date);
         }
