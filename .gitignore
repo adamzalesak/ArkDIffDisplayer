@@ -6,7 +6,46 @@
 /ArkDiffDisplayer/ArkDiffDisplayer/bin/Debug/net6.0
 /ArkDiffDisplayer/ArkDiffDisplayer/obj/Debug/net6.0
 /ArkDiffDisplayer/ArkDiffDisplayer/obj/project.nuget.cache
-/ArkDiffDisplayer/ArkDiffDisplayer/obj/project.assets.json
+/ArkDiffDisplayer/ArkDiffDisplayer/obj/p/ArkDiffDisplayer/ArkDiffDisplayer.sln
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+
+# Visual Studio Code
+.vscode
+
+# Rider
+.idea
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2015
+.vs/
+roject.assets.json
 /ArkDiffDisplayer/ArkDiffDisplayer/obj/ArkDiffDisplayer.csproj.nuget.g.targets
 /ArkDiffDisplayer/ArkDiffDisplayer/obj/ArkDiffDisplayer.csproj.nuget.g.props
 /ArkDiffDisplayer/ArkDiffDisplayer/obj/ArkDiffDisplayer.csproj.nuget.dgspec.json
