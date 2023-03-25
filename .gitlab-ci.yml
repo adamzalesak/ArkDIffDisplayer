@@ -1,0 +1,31 @@
+image: mcr.microsoft.com/dotnet/sdk:6.0
+
+default:
+  tags:
+    - shared-fi
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+
+stages:
+  - build
+  - test
+
+before_script:
+    - "cd ArkDiffDisplayer"
+    - "dotnet restore"
+
+build:
+  stage: build
+  script:
+    - "dotnet build"
+  artifacts:
+      expire_in: 10 minutes
+
+test:
+    stage: test
+    script: 
+        - "dotnet test"
+    artifacts:
+      expire_in: 10 minutes
