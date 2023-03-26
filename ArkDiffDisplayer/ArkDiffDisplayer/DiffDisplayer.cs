@@ -28,15 +28,15 @@ public class DiffDisplayer
         var downloadStatus = _dataManagement.DownloadData();
         if (!downloadStatus)
         {
-            throw new DiffDisplayerException("Unsuccessful data download.");
+            throw new DiffDisplayerException("File download failed.");
         }
         
-        // Fetch today's data
-        IList<string> todaysData;
+        // Fetch today's data and some older
+        IList<string> todayData;
         IList<string> olderData;
         try
         {
-            todaysData = _dataManagement.FetchData(DateTime.Today);
+            todayData = _dataManagement.FetchData(DateTime.Today);
             olderData = _dataManagement.FetchData(dayToCompareTo);
         }
         catch (FileNotFoundException ex)
@@ -46,21 +46,21 @@ public class DiffDisplayer
 
         // parse data
         HoldingsData parsedOlderData;
-        HoldingsData parsedTodaysData;
+        HoldingsData parsedTodayData;
         try
         {
-            parsedTodaysData = _parser.Parse(todaysData);
+            parsedTodayData = _parser.Parse(todayData);
             parsedOlderData = _parser.Parse(olderData);
         }
         catch (ParserException ex)
         {
-            throw new DiffDisplayerException(ex.Message);
+            throw new DiffDisplayerException("File parse failed:" + ex.Message);
         }
 
         // create diff
-        var diff = _diffCreator.CreateDataDiff(parsedOlderData, parsedTodaysData);
+        var diff = _diffCreator.CreateDataDiff(parsedOlderData, parsedTodayData);
         
-        // create string from diff
+        // create pretty console output string from diff
         var result = _outputCreator.CreateOutput(diff);
 
         return result;
