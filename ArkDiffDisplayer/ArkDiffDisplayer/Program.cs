@@ -4,4 +4,8 @@ using ArkDiffDisplayer.FileManagement;
 Console.WriteLine("Hello, World!");
 
 FileManagementUtils.DownloadHoldingsCsv();
-Console.WriteLine(FileManagementUtils.ReadHoldingsCsvFile(DateTime.Today));
+
+foreach (var line in FileManagementUtils.ReadLinesHoldingsCsvFile(DateTime.Today))
+{
+    Console.WriteLine(line);
+}

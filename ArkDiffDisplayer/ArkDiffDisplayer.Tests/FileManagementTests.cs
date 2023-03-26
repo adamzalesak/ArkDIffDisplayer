@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using ArkDiffDisplayer.Parser;
 using ArkDiffDisplayer.FileManagement;
 using System;
+using System.IO;
 
 namespace ArkDiffDisplayer.Tests
 {
@@ -13,11 +13,21 @@ namespace ArkDiffDisplayer.Tests
             
         }
 
-        
+        [Test]
         public void TestCsvFileDownloaded()
         {
             FileManagementUtils.DownloadHoldingsCsv();
-            Assert.DoesNotThrow(() => FileManagementUtils.ReadHoldingsCsvFile(DateTime.Today));
+            FileAssert.Exists(FileManagementUtils.GetFileLocationAndName(DateTime.Today));
+        }
+
+        [Test]
+        public void TestCsvReadFile()
+        {
+            FileManagementUtils.DownloadHoldingsCsv();
+            Assert.DoesNotThrow(() => FileManagementUtils.ReadLinesHoldingsCsvFile(DateTime.Today));
+            var LinesList = FileManagementUtils.ReadLinesHoldingsCsvFile(DateTime.Today);
+            Assert.AreEqual(30, LinesList.Count);
+            Assert.AreEqual("date,fund,company,ticker,cusip,shares,\"market value ($)\",\"weight (%)\"", LinesList[0]);
         }
 
 

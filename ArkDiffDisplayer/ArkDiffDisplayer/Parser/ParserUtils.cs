@@ -1,4 +1,6 @@
-﻿namespace ArkDiffDisplayer.Parser
+﻿using ArkDiffDisplayer.FileManagement;
+
+namespace ArkDiffDisplayer.Parser
 {
     public class ParserUtils
     {
@@ -22,6 +24,14 @@
                 default:
                     throw new ArgumentException();
             }
+        }
+
+        public static List<string> TrimUselessLinesFromFile(DateTime date)
+        {
+            var lines = FileManagementUtils.ReadLinesHoldingsCsvFile(date);
+            lines.RemoveAt(0);
+            lines.RemoveAt(lines.Count - 1);
+            return lines;
         }
     }
 }

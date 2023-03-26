@@ -40,16 +40,6 @@ namespace ArkDiffDisplayer.FileManagement
             }
         }
 
-        public static string ReadHoldingsCsvFile(DateTime date)
-        {
-            string fileLocationAndName = GetFileLocationAndName(date);
-
-            if (!File.Exists(fileLocationAndName))
-                throw new FileNotFoundException();
-            
-            return File.ReadAllText(fileLocationAndName);
-        }
-
         public static List<string> ReadLinesHoldingsCsvFile(DateTime date)
         {
             string fileLocationAndName = GetFileLocationAndName(date);
