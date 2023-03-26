@@ -1,4 +1,5 @@
-/ArkDiffDisplayer/ArkDiffDisplayer.sln
+!/ArkDiffDisplayer/ArkDiffDisplayer/bin/Debug/net6.0/holdings_files
+!/ArkDiffDisplayer/ArkDiffDisplayer/bin/Debug/net6.0/holdings_files/*
 
 *.swp
 *.*~

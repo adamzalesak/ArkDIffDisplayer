@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using ArkDiffDisplayer.Parser;
+using ArkDiffDisplayer.FileManagement;
+using System;
 
 namespace ArkDiffDisplayer.Tests
 {
@@ -27,6 +29,14 @@ namespace ArkDiffDisplayer.Tests
                 var field = ParserUtils.LoadFieldFromLine(_sampleLines[i], option);
                 Assert.AreEqual(field, correctValues[i].ToString());
             }
+        }
+
+        [Test]
+        public void TrimsUselessLinesFromFile()
+        {
+            var trimmedLines = ParserUtils.TrimUselessLinesFromFile(DateTime.Today);
+            Assert.AreEqual(trimmedLines[0].StartsWith("date"), false);
+            Assert.AreEqual(trimmedLines[trimmedLines.Count - 1].StartsWith("\"The principal risks"), false);
         }
     }
 }
