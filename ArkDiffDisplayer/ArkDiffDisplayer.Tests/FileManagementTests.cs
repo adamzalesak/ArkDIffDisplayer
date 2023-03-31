@@ -7,12 +7,6 @@ namespace ArkDiffDisplayer.Tests
 {
     public class FileManagementTests
     {
-        [SetUp]
-        public void Setup()
-        {
-            
-        }
-
         [Test]
         public void TestCsvFileDownloaded()
         {
