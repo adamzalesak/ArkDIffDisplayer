@@ -7,4 +7,18 @@ public class DataDiffItem
     public long Shares { get; set; }
     public decimal? SharesPercentageChange { get; set; }
     public decimal WeightPercentage { get; set; }
+
+    public DataDiffItem(HoldingsDataItem holdingsDataItem)
+    {
+        CompanyName = holdingsDataItem.Company;
+        Ticker = holdingsDataItem.Ticker;
+        Shares = holdingsDataItem.Shares;
+    }
+
+    public DataDiffItem(HoldingsDataItem holdingsDataItem, decimal sharesPercentageChange, decimal weightPercentageChange)
+        : this(holdingsDataItem)
+    {
+        SharesPercentageChange = sharesPercentageChange;
+        WeightPercentage = weightPercentageChange;
+    }
 }
