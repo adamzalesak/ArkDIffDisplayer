@@ -2,9 +2,13 @@
 {
     public enum ParserOptions
     {
-        Name,
         Date,
-        Weight,
-        Shares
+        Fund,
+        Company,
+        Ticker,
+        Cusip,
+        Shares,
+        MarketValue,
+        Weight
     }
 }
