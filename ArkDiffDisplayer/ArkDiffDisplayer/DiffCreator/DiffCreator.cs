@@ -13,27 +13,28 @@ namespace ArkDiffDisplayer.DiffCreator
 
         public DataDiff CreateDataDiff(HoldingsData olderHoldingsData, HoldingsData newerHoldingsData)
         {
-            var oldData = extractData(olderHoldingsData);
-            var newData = extractData(newerHoldingsData);
-            var diffDataList = differentiateAllData(newData, oldData);
+            var oldData = ExtractData(olderHoldingsData);
+            var newData = ExtractData(newerHoldingsData);
+            var diffDataList = DifferentiateAllData(newData, oldData);
 
             return new DataDiff
             {
                 IncreasedPositions = diffDataList.Where(item => item.SharesPercentageChange >= 0).ToList(),
                 ReducedPositions = diffDataList.Where(item => item.SharesPercentageChange < 0).ToList(),
-                NewPositions = getNewData(newData, oldData).ToList()
+                NewPositions = GetNewData(newData, oldData).ToList()
             };
         }
 
-        private Dictionary<string, HoldingsDataItem> extractData(HoldingsData holdingsData) =>
+        private Dictionary<string, HoldingsDataItem> ExtractData(HoldingsData holdingsData) =>
             holdingsData.Data.ToDictionary(dataItem => dataItem.Company);
 
-        private IEnumerable<DataDiffItem> differentiateAllData(Dictionary<string, HoldingsDataItem> newData, Dictionary<string, HoldingsDataItem> oldData) =>
+        private IEnumerable<DataDiffItem> DifferentiateAllData(Dictionary<string, HoldingsDataItem> newData, Dictionary<string, HoldingsDataItem> oldData) =>
             newData
                  .Where(pair => oldData.ContainsKey(pair.Key))
-                 .Select(pair => new DataDiffItem(pair.Value, pair.Value.Shares - oldData[pair.Key].Shares, pair.Value.MarketValue - oldData[pair.Key].MarketValue));
+                 .Select(pair => new DataDiffItem(pair.Value, 
+                     (decimal)(pair.Value.Shares - oldData[pair.Key].Shares) * 100 / oldData[pair.Key].Shares));
 
-        private IEnumerable<DataDiffItem> getNewData(Dictionary<string, HoldingsDataItem> newData, Dictionary<string, HoldingsDataItem> oldData) =>
+        private IEnumerable<DataDiffItem> GetNewData(Dictionary<string, HoldingsDataItem> newData, Dictionary<string, HoldingsDataItem> oldData) =>
             newData
                 .Where(pair => !oldData.ContainsKey(pair.Key))
                 .Select(pair => new DataDiffItem(pair.Value));
