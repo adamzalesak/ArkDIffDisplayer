@@ -4,6 +4,7 @@ using ArkDiffDisplayer.FileManagement;
 using ArkDiffDisplayer.Parser;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace ArkDiffDisplayer.Tests
 {
@@ -30,24 +31,24 @@ namespace ArkDiffDisplayer.Tests
             _holdingsData = new HoldingsData();
 
             var holdingsDataItem1 = new HoldingsDataItem();
-            holdingsDataItem1.Date = DateTime.Parse("03/17/2023");
+            holdingsDataItem1.Date = DateTime.Parse("03/17/2023", DateTimeFormatInfo.InvariantInfo);
             holdingsDataItem1.Fund = "ARKK";
             holdingsDataItem1.Company = "BLOCK INC";
             holdingsDataItem1.Ticker = "SQ";
             holdingsDataItem1.Cusip = "852234103";
             holdingsDataItem1.Shares = 6445308;
-            holdingsDataItem1.MarketValue = 483978177.72;
-            holdingsDataItem1.Weight = 6.22;
+            holdingsDataItem1.MarketValue = 483978177.72m;
+            holdingsDataItem1.Weight = 6.22m;
 
             var holdingsDataItem2 = new HoldingsDataItem();
-            holdingsDataItem2.Date = DateTime.Parse("03/18/2023");
+            holdingsDataItem2.Date = DateTime.Parse("03/18/2023", DateTimeFormatInfo.InvariantInfo);
             holdingsDataItem2.Fund = "ARKK";
             holdingsDataItem2.Company = "UIPATH INC - CLASS A";
             holdingsDataItem2.Ticker = "PATH";
             holdingsDataItem2.Cusip = "90364P105";
             holdingsDataItem2.Shares = 27406387;
-            holdingsDataItem2.MarketValue = 471937984.14;
-            holdingsDataItem2.Weight = 6.06;
+            holdingsDataItem2.MarketValue = 471937984.14m;
+            holdingsDataItem2.Weight = 6.06m;
 
             _holdingsData.Data.Add(holdingsDataItem1);
             _holdingsData.Data.Add(holdingsDataItem2);
@@ -57,10 +58,10 @@ namespace ArkDiffDisplayer.Tests
         [TestCase(new object[] { "ARKK", "ARKK", "ARKK", "ARKK" }, ParserOptions.Fund)]
         [TestCase(new object[] { "SQ", "PATH", "SHOP", "TDOC" }, ParserOptions.Ticker)]
         [TestCase(new object[] { "852234103", "90364P105", "82509L107", "87918A105" }, ParserOptions.Cusip)]
-        [TestCase(new object[] { "483978177.72", "471937984.14", "416234881.32", "302996383.82" }, ParserOptions.MarketValue)]
+        [TestCase(new object[] { "483,978,177.72", "471,937,984.14", "416,234,881.32", "302,996,383.82" }, ParserOptions.MarketValue)]
         [TestCase(new object[] { "03/17/2023", "03/18/2023", "03/19/2023", "03/20/2023" }, ParserOptions.Date)]
         [TestCase(new object[] { "6.22", "6.06", "5.35", "3.89" }, ParserOptions.Weight)]
-        [TestCase(new object[] { "6445308", "27406387", "9317996", "12014131" }, ParserOptions.Shares)]
+        [TestCase(new object[] { "6,445,308", "27,406,387", "9,317,996", "12,014,131" }, ParserOptions.Shares)]
         public void AllFieldsOfSampleDatasetAreParsed(object[] correctValues, ParserOptions option)
         {   
             for (int i = 0; i < _sampleLines.Length; i++)

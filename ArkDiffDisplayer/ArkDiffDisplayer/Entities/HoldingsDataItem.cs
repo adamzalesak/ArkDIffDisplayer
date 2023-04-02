@@ -8,6 +8,6 @@ public class HoldingsDataItem
     public string Ticker { get; set; }
     public string Cusip { get; set; }
     public long Shares { get; set; }
-    public double MarketValue { get; set; }
-    public double Weight { get; set; }
+    public decimal MarketValue { get; set; }
+    public decimal Weight { get; set; }
 }

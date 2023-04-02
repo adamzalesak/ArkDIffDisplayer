@@ -14,7 +14,7 @@ namespace ArkDiffDisplayer.FileManagement
     {
         public static readonly string HoldingsCsvUrl = "https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv";
         public static readonly string HoldingsCsvFileName = "ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv";
-        public static readonly string HoldingsCsvFileLocation = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "holdings_files");
+        public static readonly string HoldingsCsvFileLocation = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "HoldingsHistoryFiles");
 
         public static bool DownloadHoldingsCsv(bool verbose = false)
         {
