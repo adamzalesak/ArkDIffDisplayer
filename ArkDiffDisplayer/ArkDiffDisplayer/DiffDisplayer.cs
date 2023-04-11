@@ -25,8 +25,8 @@ public class DiffDisplayer
     public string GetDiff(DateTime dayToCompareTo)
     {
         // Downloads today's data
-        var downloadStatus = _dataManagement.DownloadData();
-        if (!downloadStatus)
+        var isSuccessfulStatus = _dataManagement.DownloadData();
+        if (!isSuccessfulStatus)
         {
             throw new DiffDisplayerException("File download failed.");
         }
