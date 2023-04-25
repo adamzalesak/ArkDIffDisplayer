@@ -7,7 +7,7 @@ ArkDiffDisplayer is a C# web application that allows users to compare two CSV fi
 - Allows users to upload and download CSV files for comparison.
 - Parses the data from CSV files.
 - Creates a difference between the two CSV files.
-- Outputs the difference to the console as a string or to a simple web.
+- Outputs the difference to the console as a string or to a simple website.
 
 ## Structure of the project
 
@@ -23,7 +23,7 @@ The project is divided into 3 main classes:
 1. `IDataManagement`: Responsible for downloading and fetching the CSV files.
 2. `IParser`: Responsible for parsing the data from the CSV files.
 3. `IDiffCreater`: Responsible for creating the difference between the two CSV files.
-4. `IOutputCreator`: Responsible for creating the output either to the console as a string or to some simple web.
+4. `IOutputCreator`: Responsible for creating the output either to the console as a string or to a simple website.
 
 ## Authors
 
@@ -52,7 +52,7 @@ The application is fully tested using the NuGet package FakeItEasy and Unit Test
 ## Requirements
 
 - .NET Framework 4.7.2 or later.
-- Visual Studio 2017 or later/JetBrains Rider 2018.3 or later.
+- Visual Studio 2017 or later / JetBrains Rider 2018.3 or later.
 
 ## Installation
 
