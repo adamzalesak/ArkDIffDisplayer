@@ -22,7 +22,7 @@ public class DiffDisplayer
         _outputCreator = outputCreator;
     }
 
-    public string GetDiff(DateTime dayToCompareTo)
+    public DataDiff GetDataDiff(DateTime dayToCompareTo)
     {
         // Downloads today's data
         var isSuccessfulStatus = _dataManagement.DownloadData();
@@ -30,7 +30,7 @@ public class DiffDisplayer
         {
             throw new DiffDisplayerException("File download failed.");
         }
-        
+
         // Fetch today's data and some older
         IList<string> todayData;
         IList<string> olderData;
@@ -59,8 +59,14 @@ public class DiffDisplayer
 
         // create diff
         var diff = _diffCreator.CreateDataDiff(parsedOlderData, parsedTodayData);
-        
+
+        return diff;
+    }
+
+    public string GetDiff(DateTime dayToCompareTo)
+    {   
         // create pretty console output string from diff
+        var diff = GetDataDiff(dayToCompareTo);
         var result = _outputCreator.CreateOutput(diff);
 
         return result;
