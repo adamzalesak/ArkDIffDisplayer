@@ -51,7 +51,7 @@ The application is fully tested using the NuGet package FakeItEasy and Unit Test
 
 ## Requirements
 
-- .NET Framework 4.7.2 or later.
+- .NET 7.
 - Visual Studio 2017 or later / JetBrains Rider 2018.3 or later.
 
 ## Installation
