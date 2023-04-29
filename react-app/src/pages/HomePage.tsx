@@ -7,7 +7,13 @@ export const HomePage = () => {
 
   return (
     <>
-      <Typography variant="h1" sx={{ textAlign: "center" }}>
+      <Typography
+        variant="h1"
+        sx={{
+          textAlign: "center",
+          fontSize: { xs: "3rem", sm: "3.5rem", md: "4rem" },
+        }}
+      >
         ArkDiffDisplayer
       </Typography>
 
