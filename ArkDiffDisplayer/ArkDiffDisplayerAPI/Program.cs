@@ -37,9 +37,20 @@ var diffDisplayer = new DiffDisplayer(dataManagement, parser, diffCreator, outpu
 app.MapGet("/latest-diff",
     IResult () =>
     {
+        var lastWorkingDay = DateTime.Now;
+        if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
+        {
+            lastWorkingDay = DateTime.Now.AddDays(-1);
+        } else if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+        {
+            lastWorkingDay = DateTime.Now.AddDays(-2);
+        }
+        
+        var lastWorkingDayString = lastWorkingDay.ToString("MM-dd-yyyy", DateTimeFormatInfo.InvariantInfo);
+        
         try
         {
-            var result = diffDisplayer.GetDataDiff(DateTime.Parse("03-26-2023", DateTimeFormatInfo.InvariantInfo));
+            var result = diffDisplayer.GetDataDiff(DateTime.Parse(lastWorkingDayString, DateTimeFormatInfo.InvariantInfo));
             return Results.Ok(result);
         }
         catch (Exception ex)
