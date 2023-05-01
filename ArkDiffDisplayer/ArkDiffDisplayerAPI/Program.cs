@@ -37,7 +37,7 @@ var diffDisplayer = new DiffDisplayer(dataManagement, parser, diffCreator, outpu
 app.MapGet("/latest-diff",
     IResult () =>
     {
-        var lastWorkingDay = (DateTime.Now.DayOfWeek) switch
+        var lastWorkingDay = DateTime.Now.DayOfWeek switch
             {
                 DayOfWeek.Sunday => DateTime.Now.AddDays(-2),
                 DayOfWeek.Monday => DateTime.Now.AddDays(-3),
