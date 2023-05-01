@@ -37,15 +37,13 @@ var diffDisplayer = new DiffDisplayer(dataManagement, parser, diffCreator, outpu
 app.MapGet("/latest-diff",
     IResult () =>
     {
-        var lastWorkingDay = DateTime.Now.AddDays(-1);
-        if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
-        {
-            lastWorkingDay = DateTime.Now.AddDays(-2);
-        } else if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
-        {
-            lastWorkingDay = DateTime.Now.AddDays(-3);
-        }
-        
+        var lastWorkingDay = (DateTime.Now.DayOfWeek) switch
+            {
+                DayOfWeek.Sunday => DateTime.Now.AddDays(-2),
+                DayOfWeek.Monday => DateTime.Now.AddDays(-3),
+                _ => DateTime.Now.AddDays(-1),
+            };
+
         var lastWorkingDayString = lastWorkingDay.ToString("MM-dd-yyyy", DateTimeFormatInfo.InvariantInfo);
         
         try
